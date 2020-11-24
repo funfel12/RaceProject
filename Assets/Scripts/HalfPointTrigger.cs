@@ -5,14 +5,16 @@ using UnityEngine;
 public class HalfPointTrigger : MonoBehaviour
 {
     public GameObject LapCompleteTrigger;
-    public GameObject HalfLapTrigger;
+    public GameObject Trigger1;
+    public int TriggerCounter;
 
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter()
     {
 
-        HalfLapTrigger.SetActive(false);
+
+        Trigger1.SetActive(false);
         LapCompleteTrigger.SetActive(true);
-        print("Collision detected");
+
     }
 }

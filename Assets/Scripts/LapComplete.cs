@@ -12,8 +12,10 @@ public class LapComplete : MonoBehaviour
 
     public GameObject LapTimeBox;
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider collision)
     {
+        if(collision.gameObject.tag != "Opponent01")
+        {
         MilliSecDisplay.GetComponent<Text>().text = "" + LapTimeManager.milliSecCount;
         if (LapTimeManager.secondCount <= 9)
         {
@@ -40,6 +42,8 @@ public class LapComplete : MonoBehaviour
 
         HalfLapTrigger.SetActive(true);
         LapCompleteTrigger.SetActive(false);
+
+        }
 
         
     }
