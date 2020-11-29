@@ -12,8 +12,12 @@ public class LapComplete : MonoBehaviour
 
     public GameObject LapTimeBox;
 
+    public GameObject LapCounter;
+    public int LapsDone;
+
     void OnTriggerEnter(Collider collision)
     {
+        LapsDone++;
         if(collision.gameObject.tag != "Opponent01")
         {
         MilliSecDisplay.GetComponent<Text>().text = "" + LapTimeManager.milliSecCount;
@@ -39,6 +43,7 @@ public class LapComplete : MonoBehaviour
         LapTimeManager.minuteCount = 0;
         LapTimeManager.secondCount = 0;
         LapTimeManager.milliSecCount = 0;
+        LapCounter.GetComponent<Text>().text = "" + LapsDone;
 
         HalfLapTrigger.SetActive(true);
         LapCompleteTrigger.SetActive(false);
